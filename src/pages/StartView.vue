@@ -12,32 +12,32 @@ import AppButton from '@/common/components/AppButton.vue';
 </template>
 
 <style lang="scss" scoped>
-  .start-view {
-    display: flex;
+.start-view {
+  display: flex;
 
-    &__content {
-      margin: auto;
-    }
+  &__content {
+    margin: auto;
+  }
 
-    &__heading {
-      text-align: center;
-      font-weight: 700;
-      font-size: clamp(3rem, 8vw, 7rem);
+  &__heading {
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 7rem);
 
-      span {
-        display: block;
-      }
-    }
-
-    &__action-btn {
-      width: 100%;
-      height: 60px;
-      border-radius: 15px;
-      background-color: $light;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: $dark;
-      margin: 4rem 0 0;
+    span {
+      display: block;
     }
   }
+
+  &__action-btn {
+    width: 100%;
+    height: 60px;
+    border-radius: 15px;
+    background-color: $light;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    color: $dark;
+    margin: 4rem 0 0;
+  }
+}
 </style>
