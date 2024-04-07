@@ -1,0 +1,10 @@
+.base-layout {
+  width: 100%;
+  padding: 0 1rem;
+
+  &__content {
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+  }
+}
