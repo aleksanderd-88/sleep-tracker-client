@@ -6,7 +6,8 @@ import AppButton from '@/common/components/AppButton.vue';
   <div class="start-view base-layout">
     <main class="start-view__content base-layouts__content">
       <h1 class="start-view__heading">Daily Sleep <span>Tracker</span></h1>
-      <AppButton class="start-view__action-btn">Track your sleep today!</AppButton>
+      <AppButton class="start-view__action-btn" @click="$router.push({ name: 'login' })">Track your sleep today!
+      </AppButton>
     </main>
   </div>
 </template>
