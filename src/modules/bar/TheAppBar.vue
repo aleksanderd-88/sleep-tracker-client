@@ -14,6 +14,11 @@
 <style lang="scss" scoped>
 .app-bar {
   width: 100%;
+  background-color: $dark;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
   box-shadow: 0 5px 18px -4px rgba(#000, .2);
 
   &__content {
