@@ -1,11 +1,7 @@
 <script lang="ts" setup>
 import AppButton from '@/common/components/AppButton.vue';
 import { reactive } from 'vue';
-
-type Input = {
-  email: string
-  password: string
-}
+import { type Input } from '@/modules/form/types';
 
 const input = reactive({
   email: '',
@@ -27,8 +23,8 @@ const onSubmit = () => {
 <template>
   <div>
     <form data-test="login-form" @submit.prevent="onSubmit()">
-      <input type="text" data-test="email-input" v-model="input.email">
-      <input type="password" data-test="password-input" v-model="input.password">
+      <input type="text" data-test="email-input" v-model="input.email" placeholder="Your email" />
+      <input type="password" data-test="password-input" v-model="input.password" placeholder="Your password" />
       <AppButton type="submit">Log in</AppButton>
     </form>
   </div>
