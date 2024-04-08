@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  &__text-field {
+    height: 60px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    padding: 0 1rem;
+    background-color: $light;
+    color: $dark;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+
+    &::placeholder {
+      color: $dark;
+    }
+  }
+  
+  &__submit-btn {
+    height: 60px;
+    border-radius: 5px;
+  }
+
+  p,
+  a {
+    font-size: .9rem;
+    color: $light;
+    text-align: center;
+  }
+
+  @media(min-width: 1024px) {
+    padding: 4rem 2rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(#000, .3);
+  }
+}

@@ -35,8 +35,6 @@ import AppButton from '@/common/components/AppButton.vue';
     height: 60px;
     border-radius: 15px;
     background-color: $light;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 500;
     color: $dark;
     margin: 4rem 0 0;
   }

@@ -20,5 +20,7 @@ import type { ButtonHTMLAttributes, PropType } from 'vue';
     cursor: pointer;
     outline: none;
     border: none;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
   }
 </style>

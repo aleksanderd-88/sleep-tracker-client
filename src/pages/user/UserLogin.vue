@@ -4,10 +4,4 @@ import TheLoginForm from '@/modules/form/TheLoginForm.vue';
 
 <template>
   <TheLoginForm />
-  <p>
-    Don't have an account yet?
-    <router-link :to="{
-      name: 'signup'
-    }"> Sign up here</router-link>
-  </p>
 </template>
