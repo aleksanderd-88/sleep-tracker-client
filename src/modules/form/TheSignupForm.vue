@@ -23,15 +23,13 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <div>
-    <form data-test="login-form" @submit.prevent="onSubmit()">
-      <input type="text" data-test="first-name-input" v-model="input.firstName" placeholder="Enter your first name" />
-      <input type="text" data-test="last-name-input" v-model="input.lastName" placeholder="Enter your last name" />
-      <input type="text" data-test="email-input" v-model="input.email" placeholder="Enter your e-mail" />
-      <input type="password" data-test="password-input" v-model="input.password" placeholder="Choose a secure password" />
-      <AppButton type="submit">Sign up</AppButton>
-    </form>
-  </div>
+  <form class="form" data-test="login-form" @submit.prevent="onSubmit()">
+    <input type="text" class="form__text-field" data-test="first-name-input" v-model="input.firstName" placeholder="Enter your first name" />
+    <input type="text" class="form__text-field" data-test="last-name-input" v-model="input.lastName" placeholder="Enter your last name" />
+    <input type="text" class="form__text-field" data-test="email-input" v-model="input.email" placeholder="Enter your e-mail" />
+    <input type="password" class="form__text-field" data-test="password-input" v-model="input.password" placeholder="Choose a secure password" />
+    <AppButton class="form__submit-btn" type="submit">Sign up</AppButton>
+  </form>
 </template>
 
 <style lang="scss" scoped></style>
