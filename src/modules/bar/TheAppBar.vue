@@ -2,7 +2,12 @@
 
 <template>
   <nav class="app-bar">
-    <main class="app-bar__content"></main>
+    <main class="app-bar__content">
+      <router-link to="/" class="app-bar__home-navigation-btn" title="Go back to home">
+        Daily Sleep
+        <span>Tracker</span>
+      </router-link>
+    </main>
   </nav>
 </template>
 
@@ -13,6 +18,26 @@
 
   &__content {
     height: 60px;
+    display: flex;
+    padding: 0 1rem;
+  }
+
+  &__home-navigation-btn {
+    color: $light;
+    line-height: 1.4;
+    align-self: center;
+    text-decoration: none;
+    padding: 5px;
+    font-size: .8rem;
+
+    span {
+      &:first-child {
+        display: block;
+        letter-spacing: .25em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
   }
 }
 </style>
