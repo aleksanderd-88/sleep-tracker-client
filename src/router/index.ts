@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StartView from '@/pages/StartView.vue'
+import { setPageTitle } from '@/middlewares/router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +8,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'start',
-      component: StartView
+      component: StartView,
+      meta: {
+        title: 'Home'
+      }
     },
     {
       path: '/user',
@@ -17,16 +21,26 @@ const router = createRouter({
         {
           path: 'log-in',
           name: 'login',
-          component: () => import('@/pages/user/UserLogin.vue')
+          component: () => import('@/pages/user/UserLogin.vue'),
+          meta: {
+            title: 'Log in to continue'
+          }
         },
         {
           path: 'sign-up',
           name: 'signup',
-          component: () => import('@/pages/user/UserSignup.vue')
+          component: () => import('@/pages/user/UserSignup.vue'),
+          meta: {
+            title: 'Sign up to continue'
+          }
         }
       ]
     }
   ]
+})
+
+router.afterEach((to) => {
+  setPageTitle(to.meta?.title as string)
 })
 
 export default router
