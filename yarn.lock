@@ -3169,6 +3169,11 @@ vue-tsc@^2.0.6:
     "@vue/language-core" "2.0.10"
     semver "^7.5.4"
 
+vue3-google-login@^2.0.26:
+  version "2.0.26"
+  resolved "https://registry.yarnpkg.com/vue3-google-login/-/vue3-google-login-2.0.26.tgz#0e55dbb3c6cbb78872dee0de800624c749d07882"
+  integrity sha512-BuTSIeSjINNHNPs+BDF4COnjWvff27IfCBDxK6JPRqvm57lF8iK4B3+zcG8ud6BXfZdyuiDlxletbEDgg4/RFA==
+
 vue@^3.4.21:
   version "3.4.21"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.4.21.tgz#69ec30e267d358ee3a0ce16612ba89e00aaeb731"
