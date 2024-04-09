@@ -19,7 +19,7 @@
   top: 0;
   right: 0;
   z-index: 1;
-  box-shadow: 0 5px 18px -4px rgba(#000, .2);
+  box-shadow: 0 8px 5px -4px rgba(#000, .2);
 
   &__content {
     height: 60px;
