@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, watch } from "vue"
+import { watch } from "vue"
 import { useRoute } from "vue-router";
 import { googleOneTap } from "vue3-google-login"
 
@@ -15,9 +15,10 @@ const initializeGoogleOneTap = () => {
     })
 }
 
-watch(() => route.fullPath, () => setTimeout(() => initializeGoogleOneTap(), 150))
-
-onMounted(() => initializeGoogleOneTap())
+watch(() => route.fullPath,
+  () => setTimeout(() => initializeGoogleOneTap(), 150),
+  { immediate: true }
+)
 </script>
 
 <template>
