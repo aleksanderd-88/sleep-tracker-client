@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import { onMounted } from "vue"
+import { onMounted, watch } from "vue"
+import { useRoute } from "vue-router";
 import { googleOneTap } from "vue3-google-login"
 
-onMounted(() => {
+const route = useRoute()
+
+const initializeGoogleOneTap = () => {
   googleOneTap()
     .then((response) => {
       console.log("Handle the response", response)
@@ -10,7 +13,11 @@ onMounted(() => {
     .catch((error) => {
       console.log("Handle the error", error)
     })
-})
+}
+
+watch(() => route.fullPath, () => setTimeout(() => initializeGoogleOneTap(), 150))
+
+onMounted(() => initializeGoogleOneTap())
 </script>
 
 <template>
