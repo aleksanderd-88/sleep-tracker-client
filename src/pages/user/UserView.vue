@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useGoogleStore } from "@/stores/google";
 import { watch } from "vue"
 import { useRoute } from "vue-router";
 import { googleOneTap } from "vue3-google-login"
@@ -6,7 +7,9 @@ import { googleOneTap } from "vue3-google-login"
 const route = useRoute()
 
 const initializeGoogleOneTap = () => {
-  googleOneTap()
+  googleOneTap({
+    clientId: useGoogleStore().response.clientId
+  })
     .then((response) => {
       console.log("Handle the response", response)
     })
