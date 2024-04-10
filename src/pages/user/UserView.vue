@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import { useGoogleStore } from "@/stores/google";
+import { useUserStore } from "@/stores/user";
 import { watch } from "vue"
 import { useRoute } from "vue-router";
 import { googleOneTap } from "vue3-google-login"
 
 const route = useRoute()
 const googleStore = useGoogleStore()
+const userStore = useUserStore()
 
 const initializeGoogleOneTap = async () => {
   await googleStore.initialize()
@@ -13,7 +15,8 @@ const initializeGoogleOneTap = async () => {
   googleOneTap({
     clientId: googleStore.response.clientId
   })
-    .then((response) => {
+    .then(async (response) => {
+      await userStore.getUser(response.credential)
       console.log("Handle the response", response)
     })
     .catch((error) => {

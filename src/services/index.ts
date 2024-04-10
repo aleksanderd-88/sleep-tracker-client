@@ -10,6 +10,11 @@ export default {
   google: {
     initialize: () => {
       return client.get('/google/one-tap/initialize')
+    },
+    user: {
+      get: (params: { data: { credentials: string } }) => {
+        return client.post('/google/user/get', params)
+      }
     }
   },
   healthCheck: () => {

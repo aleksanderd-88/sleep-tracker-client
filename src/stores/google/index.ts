@@ -1,10 +1,11 @@
-import { defineStore } from "pinia";
-import { ref } from "vue";
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 import API from '@/services'
 
 export const useGoogleStore = defineStore('google', () => {
-
-  const response = ref({
+  const response = ref<{
+    clientId: string | null
+  }>({
     clientId: null
   })
 
@@ -13,7 +14,7 @@ export const useGoogleStore = defineStore('google', () => {
       const { data } = await API.google.initialize()
       response.value = { ...response.value, ...data }
     } catch (error) {
-      console.log(`Error ==> ${ error }`);
+      console.log(`Error ==> ${error}`)
     }
   }
 
