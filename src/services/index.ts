@@ -9,11 +9,10 @@ const client = axios.create({
 export default {
   google: {
     initialize: () => {
-      return client.get('/google/initialize')
+      return client.get('/google/one-tap/initialize')
     }
   },
   healthCheck: () => {
     return client.get('/health-check')
   }
 }
-
