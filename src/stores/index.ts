@@ -1,13 +1,12 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 import API from '@/services'
 
 export const useAppStore = defineStore('app', () => {
-
-  const initializeAPI = () => {
+  const initializeAPI = async () => {
     try {
-      API.healthCheck()
+      await API.healthCheck()
     } catch (error) {
-      console.log(`Error ==> ${ error }`);
+      console.log('Failed to initialize API')
     }
   }
 

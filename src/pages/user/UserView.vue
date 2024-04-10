@@ -5,10 +5,13 @@ import { useRoute } from "vue-router";
 import { googleOneTap } from "vue3-google-login"
 
 const route = useRoute()
+const googleStore = useGoogleStore()
 
-const initializeGoogleOneTap = () => {
+const initializeGoogleOneTap = async () => {
+  await googleStore.initialize()
+
   googleOneTap({
-    clientId: useGoogleStore().response.clientId
+    clientId: googleStore.response.clientId
   })
     .then((response) => {
       console.log("Handle the response", response)
