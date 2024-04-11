@@ -5,7 +5,11 @@ import AppButton from '@/common/components/AppButton.vue';
 <template>
   <div class="start-view base-layout">
     <main class="start-view__content base-layout__content">
-      <h1 class="start-view__heading">Daily Sleep <span>Tracker</span></h1>
+      <h1 class="base-layout__headline start-view__headline">
+        Daily Sleep
+        <span class="base-layout__sub-headline">Tracker</span>
+      </h1>
+
       <AppButton class="start-view__action-btn" @click="$router.push({ name: 'login' })">Track your sleep today!
       </AppButton>
     </main>
@@ -22,14 +26,8 @@ import AppButton from '@/common/components/AppButton.vue';
     max-width: 600px;
   }
 
-  &__heading {
+  &__headline {
     text-align: center;
-    font-weight: 700;
-    font-size: clamp(3rem, 8vw, 7rem);
-
-    span {
-      display: block;
-    }
   }
 
   &__action-btn {

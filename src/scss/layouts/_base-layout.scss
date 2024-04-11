@@ -7,7 +7,25 @@
     width: 100%;
     max-width: 1600px;
     margin: auto;
+    padding-top: calc(60px + 2rem);
     position: relative;
+  }
+
+  &__headline {
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 7rem);
+
+    &--size-small {
+      font-size: clamp(3rem, 8vw, 4rem);
+    }
+  }
+
+  &__sub-headline {
+    display: block;
+
+    &--size-small {
+      font-size: clamp(1rem, 8vw, 1.25rem);
+    }
   }
 
   &::before {
