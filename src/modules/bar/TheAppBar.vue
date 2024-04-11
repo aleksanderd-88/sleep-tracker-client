@@ -1,4 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import AppButton from '@/common/components/AppButton.vue';
+import { useUserStore } from '@/stores/user';
+
+const userStore = useUserStore()
+
+const logoutUser = () => {
+  if (!confirm('You are about to log out. Continue?')) return
+  userStore.logoutUser()
+}
+</script>
 
 <template>
   <nav class="app-bar">
@@ -7,6 +17,10 @@
         Daily Sleep
         <span>Tracker</span>
       </router-link>
+
+      <AppButton class="app-bar__logout-btn" @click="logoutUser()" v-if="userStore.currentUser">
+        Log out
+      </AppButton>
     </main>
   </nav>
 </template>
@@ -43,6 +57,12 @@
         font-weight: 700;
       }
     }
+  }
+
+  &__logout-btn {
+    margin-left: auto;
+    background-color: transparent;
+    color: $light;
   }
 }
 </style>

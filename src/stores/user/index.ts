@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import type { User } from '../google/types'
 import API from '@/services'
+import { googleLogout } from 'vue3-google-login'
 
 export const useUserStore = defineStore('user', () => {
   const response = ref<User | null>(null)
@@ -20,11 +21,18 @@ export const useUserStore = defineStore('user', () => {
     localStorage.setItem('__user__', JSON.stringify(response.value))
   }
 
+  const logoutUser = () => {
+    localStorage.removeItem('__user__')
+    location.reload()
+    googleLogout()
+  }
+
   const currentUser = computed(() => response.value)
 
   return {
     getUser,
     currentUser,
-    setUserData
+    setUserData,
+    logoutUser
   }
 })
