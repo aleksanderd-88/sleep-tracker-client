@@ -15,6 +15,15 @@ const router = createRouter({
       }
     },
     {
+      path: '/',
+      name: 'logged-in',
+      component: () => import('@/pages/LoggedInView.vue'),
+      meta: {
+        requiresAuth: true,
+        title: 'Welcome'
+      }
+    },
+    {
       path: '/user',
       name: 'user',
       component: () => import('@/pages/user/UserView.vue'),
@@ -40,13 +49,17 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach(() => {
+router.beforeEach((to) => {
   const userData = localStorage.getItem('__user__')
-  if (userData) useUserStore().setUser(JSON.parse(userData))
+
+  if (!to.meta.requiresAuth && userData) {
+    useUserStore().setUserData(JSON.parse(userData))
+    return { name: 'logged-in', replace: true }
+  }
 })
 
 router.afterEach((to) => {
-  setPageTitle(to.meta?.title as string)
+  setPageTitle(to.meta.title as string)
 })
 
 export default router
