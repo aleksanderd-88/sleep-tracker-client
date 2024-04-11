@@ -19,7 +19,7 @@ const logoutUser = () => {
       </router-link>
 
       <AppButton class="app-bar__logout-btn" @click="logoutUser()" v-if="userStore.currentUser">
-        Log out
+        Leave
       </AppButton>
     </main>
   </nav>
