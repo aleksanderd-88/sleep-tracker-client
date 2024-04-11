@@ -20,7 +20,7 @@ const router = createRouter({
       component: () => import('@/pages/LoggedInView.vue'),
       meta: {
         requiresAuth: true,
-        title: 'Welcome'
+        title: 'Welcome back!'
       }
     },
     {
