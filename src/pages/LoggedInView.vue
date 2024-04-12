@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import TheLinkBar from '@/modules/bar/TheLinkBar.vue';
 import { useUserStore } from '@/stores/user';
 import get from 'lodash/get'
 
@@ -8,6 +9,8 @@ const userStore = useUserStore()
 <template>
   <div class="base-layout">
     <main class="base-layout__content">
+      <TheLinkBar />
+
       <h1 class="base-layout__headline base-layout__headline--size-small">
         Welcome back,
         <span class="base-layout__sub-headline base-layout__sub-headline--size-small">
