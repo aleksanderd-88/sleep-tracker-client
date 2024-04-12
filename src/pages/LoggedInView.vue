@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import AppActionButtons from '@/modules/actions/AppActionButtons.vue';
 import TheLinkBar from '@/modules/bar/TheLinkBar.vue';
 import { useUserStore } from '@/stores/user';
 import get from 'lodash/get'
@@ -18,6 +19,8 @@ const userStore = useUserStore()
         </span>
       </h1>
     </main>
+
+    <AppActionButtons />
   </div>
 </template>
 

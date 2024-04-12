@@ -1,26 +1,56 @@
 <script lang="ts" setup>
-import type { ButtonHTMLAttributes, PropType } from 'vue';
+import { computed, type ButtonHTMLAttributes, type PropType } from 'vue';
+import { Icon } from '@iconify/vue/dist/iconify.js';
 
-  defineProps({
-    type: {
-      type: String as PropType<ButtonHTMLAttributes['type']>,
-      default: 'button'
-    }
-  })
+const props = defineProps({
+  type: {
+    type: String as PropType<ButtonHTMLAttributes['type']>,
+    default: 'button'
+  },
+  icon: {
+    type: String,
+    default: null
+  },
+  iconPositionRight: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const modifiedClass = computed(() => {
+  let className = ''
+  if (props.iconPositionRight)
+    className += ' app-btn--icon-position-right'
+
+  return className
+})
 </script>
 
 <template>
-  <button :type="type" class="app-btn">
+  <button :type="type" class="app-btn" :class="modifiedClass">
+    <Icon class="app-btn__icon" :icon="icon" v-if="icon" />
     <slot />
   </button>
 </template>
 
 <style lang="scss" scoped>
-  .app-btn {
-    cursor: pointer;
-    outline: none;
-    border: none;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 500;
+.app-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  &__icon {
+    font-size: 1.5rem;
   }
+
+  &--icon-position-right {
+    flex-direction: row-reverse;
+  }
+}
 </style>
