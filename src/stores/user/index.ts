@@ -16,6 +16,15 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
+  const authenticateUser = async () => {
+    try {
+      const { data } = await API.user.auth()
+      setUserData(data)
+    } catch (error) {
+      console.log(`Error ==> ${error}`)
+    }
+  }
+
   const setUserData = (userData: User) => {
     response.value = Object.assign({}, userData)
     localStorage.setItem('__user__', JSON.stringify(response.value))
@@ -33,6 +42,7 @@ export const useUserStore = defineStore('user', () => {
     getUser,
     currentUser,
     setUserData,
-    logoutUser
+    logoutUser,
+    authenticateUser
   }
 })

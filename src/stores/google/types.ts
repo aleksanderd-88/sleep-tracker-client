@@ -5,4 +5,5 @@ export type User = {
   given_name: string
   name: string
   picture: string
+  token: string
 }

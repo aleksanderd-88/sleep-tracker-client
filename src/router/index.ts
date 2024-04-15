@@ -54,6 +54,7 @@ router.beforeEach((to) => {
 
   if (!to.meta.requiresAuth && userData) {
     useUserStore().setUserData(JSON.parse(userData))
+    useUserStore().authenticateUser()
     return { name: 'logged-in', replace: true }
   }
 })

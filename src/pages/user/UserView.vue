@@ -19,7 +19,6 @@ const initializeGoogleOneTap = async () => {
     .then(async (response) => {
       await userStore.getUser(response.credential)
       router.replace({ name: 'logged-in' })
-      console.log("Handle the response", response)
     })
     .catch((error) => {
       console.log("Handle the error", error)
