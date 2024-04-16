@@ -61,17 +61,17 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  const userIsAuthenticated = JSON.parse(localStorage.getItem('__user__') as string)
+  const userData = JSON.parse(localStorage.getItem('__user__') as string)
   const routeRequiresAuth = to.meta.requiresAuth
 
-  if (userIsAuthenticated && !routeRequiresAuth) {
+  if (userData && !routeRequiresAuth) {
     return { name: 'logged-in' }
   }
 
-  if (userIsAuthenticated) {
-    useUserStore().setUserData(userIsAuthenticated)
+  if (userData) {
+    useUserStore().setUserData(userData)
     useUserStore().authenticateUser()
-  } else if (to.meta.requiresAuth && !userIsAuthenticated) {
+  } else if (routeRequiresAuth && !userData) {
     return { name: 'start' }
   }
 })
