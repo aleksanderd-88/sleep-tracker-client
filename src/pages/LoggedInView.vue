@@ -1,27 +1,34 @@
 <script lang="ts" setup>
 import AppActionButtons from '@/modules/actions/AppActionButtons.vue';
 import TheLinkBar from '@/modules/bar/TheLinkBar.vue';
-import { useUserStore } from '@/stores/user';
-import get from 'lodash/get'
+import AppUserDetails from '@/common/components/AppUserDetails.vue'
 
-const userStore = useUserStore()
 </script>
 
 <template>
-  <div class="base-layout">
+  <div class="logged-in base-layout">
+    
     <main class="base-layout__content">
-      <TheLinkBar />
+      <header class="logged-in__header">
+        <AppUserDetails />
+        <TheLinkBar />
+      </header>
 
-      <h1 class="base-layout__headline base-layout__headline--size-small">
-        Welcome back,
-        <span class="base-layout__sub-headline base-layout__sub-headline--size-small">
-          {{ get(userStore, 'currentUser.name', 'John Doe') }}
-        </span>
-      </h1>
+      <RouterView />
     </main>
 
     <AppActionButtons />
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .logged-in {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+</style>
