@@ -18,7 +18,7 @@ const logoutUser = () => {
         <span>Tracker</span>
       </router-link>
 
-      <AppButton class="app-bar__logout-btn" @click="logoutUser()" v-if="userStore.currentUser">
+      <AppButton class="app-bar__logout-btn" icon="material-symbols:logout" @click="logoutUser()" v-if="userStore.currentUser">
         Leave
       </AppButton>
     </main>
