@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import AppButton from '@/common/components/AppButton.vue';
+import GoogleLoginButton from '@/common/components/GoogleLoginButton.vue'
+
 import { reactive } from 'vue';
 import { type Input } from '@/modules/form/types';
 
@@ -34,6 +36,8 @@ const onSubmit = () => {
         name: 'signup'
       }"> Sign up here</router-link>
     </p>
+
+    <GoogleLoginButton />
   </form>
 </template>
 

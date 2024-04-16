@@ -40,6 +40,9 @@ export default {
     user: {
       get: (params: { data: { credentials: string } }) => {
         return client.post('/google/user/get', params)
+      },
+      oauth2: (params: { data: { code: string } }) => {
+        return client.post('/google/oauth2/user/get', params)
       }
     }
   },

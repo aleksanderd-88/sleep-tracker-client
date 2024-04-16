@@ -16,6 +16,15 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
+  const googleOauth2Login = async (code: string) => {
+    try {
+      const { data } = await API.google.user.oauth2({ data: { code } })
+      setUserData(data)
+    } catch (error) {
+      console.log(`Error ==> ${error}`)
+    }
+  }
+
   const authenticateUser = async () => {
     try {
       const { data } = await API.user.auth()
@@ -43,6 +52,7 @@ export const useUserStore = defineStore('user', () => {
     currentUser,
     setUserData,
     logoutUser,
-    authenticateUser
+    authenticateUser,
+    googleOauth2Login
   }
 })
