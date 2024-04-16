@@ -2,6 +2,7 @@
 import AppButton from '@/common/components/AppButton.vue';
 import { reactive } from 'vue';
 import { type Input } from '@/modules/form/types'
+import GoogleLoginButton from '@/common/components/GoogleLoginButton.vue';
 
 const input = reactive({
   email: '',
@@ -45,6 +46,8 @@ const onSubmit = () => {
         name: 'login'
       }"> Login here</router-link>
     </p>
+
+    <GoogleLoginButton class="form__google-login-btn" />
   </form>
 </template>
 

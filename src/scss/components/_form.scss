@@ -42,6 +42,17 @@
     text-align: center;
   }
 
+  &__google-login-btn {
+    border-radius: 5px;
+    margin: auto;
+    background-color: $dark;
+    color: $light;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
   @media (min-width: 1024px) {
     padding: 4rem 2rem 2rem;
     border-radius: 15px;

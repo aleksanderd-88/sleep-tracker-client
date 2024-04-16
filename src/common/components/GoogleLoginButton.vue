@@ -4,6 +4,7 @@ import { computed } from 'vue';
 import {  GoogleLogin } from 'vue3-google-login';
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router';
+import AppButton from './AppButton.vue';
 
 const userStore = useUserStore()
 const router = useRouter()
@@ -17,7 +18,16 @@ const clientId = computed(() => useGoogleStore().response.clientId as string)
 </script>
 
 <template>
-  <GoogleLogin v-if="clientId" :client-id="clientId" :callback="callback">
-    <button type="button">Login Using Google</button>
+  <GoogleLogin class="google-login-btn" v-if="clientId" :client-id="clientId" :callback="callback">
+    <AppButton icon="flat-color-icons:google" transparent theme-light>
+      Login using google
+    </AppButton>
   </GoogleLogin>
 </template>
+
+<style lang="scss" scoped>
+  .google-login-btn {
+    display: flex;
+    align-items: center;
+  }
+</style>

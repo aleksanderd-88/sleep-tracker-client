@@ -37,7 +37,7 @@ const onSubmit = () => {
       }"> Sign up here</router-link>
     </p>
 
-    <GoogleLoginButton />
+    <GoogleLoginButton class="form__google-login-btn" />
   </form>
 </template>
 

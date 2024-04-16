@@ -14,6 +14,14 @@ const props = defineProps({
   iconPositionRight: {
     type: Boolean,
     default: false
+  },
+  transparent: {
+    type: Boolean,
+    default: false
+  },
+  themeLight: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -21,6 +29,10 @@ const modifiedClass = computed(() => {
   let className = ''
   if (props.iconPositionRight)
     className += ' app-btn--icon-position-right'
+  if (props.transparent)
+    className += ' app-btn--transparent'
+  if (props.themeLight)
+    className += ' app-btn--theme-light'
 
   return className
 })
@@ -51,6 +63,14 @@ const modifiedClass = computed(() => {
 
   &--icon-position-right {
     flex-direction: row-reverse;
+  }
+
+  &--transparent {
+    background-color: transparent;
+  }
+
+  &--theme-light {
+    color: $light;
   }
 }
 </style>
