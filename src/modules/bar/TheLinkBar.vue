@@ -1,12 +1,19 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+  const links = ref<{
+    name: string
+    label: string
+  }[]>([
+    { name: 'logged-in', label: 'Start' },
+    { name: 'my-sleep', label: 'My sleep' },
+  ])
+</script>
 
 <template>
   <ul class="link-bar">
-    <li class="link-bar__item">
-      <router-link class="link-bar__link" :to="{ name: 'logged-in' }">Start</router-link>
-    </li>
-    <li class="link-bar__item">
-      <router-link class="link-bar__link" to="/">My sleep</router-link>
+    <li class="link-bar__item" v-for="link in links" :key="link.label">
+      <router-link class="link-bar__link" :to="{ name: link.name }">{{ link.label }}</router-link>
     </li>
   </ul>
 </template>

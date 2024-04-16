@@ -21,7 +21,18 @@ const router = createRouter({
       meta: {
         requiresAuth: true,
         title: 'Welcome back!'
-      }
+      },
+      children: [
+        {
+          path: 'my-sleep',
+          name: 'my-sleep',
+          component: () => import('@/pages/MySleepView.vue'),
+          meta: {
+            requiresAuth: true,
+            title: 'My sleep'
+          }
+        }
+      ]
     },
     {
       path: '/user',
@@ -52,9 +63,14 @@ const router = createRouter({
 router.beforeEach((to) => {
   const userData = localStorage.getItem('__user__')
 
-  if (!to.meta.requiresAuth && userData) {
+  if ( userData ) {
     useUserStore().setUserData(JSON.parse(userData))
+  }
+
+  if ( to.meta.requiresAuth && userData )
     useUserStore().authenticateUser()
+
+  if ( !to.meta.requiresAuth && userData ) {
     return { name: 'logged-in', replace: true }
   }
 })
