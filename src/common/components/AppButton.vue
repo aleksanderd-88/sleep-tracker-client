@@ -55,7 +55,7 @@ const modifiedClass = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: .5rem;
 
   &__icon {
     font-size: 1.5rem;
