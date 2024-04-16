@@ -2,15 +2,14 @@
 import { useGoogleStore } from '@/stores/google';
 import { computed } from 'vue';
 import {  GoogleLogin } from 'vue3-google-login';
-import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router';
 import AppButton from './AppButton.vue';
 
-const userStore = useUserStore()
+const googleStore = useGoogleStore()
 const router = useRouter()
 
 const callback = async (response: { code: string }) => {
-  await userStore.googleOauth2Login(response.code)
+  await googleStore.googleOauth2Login(response.code)
   router.replace({ name: 'logged-in' })
 }
 

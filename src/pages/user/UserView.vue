@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useGoogleStore } from "@/stores/google";
-import { useUserStore } from "@/stores/user";
 import { watch } from "vue"
 import { useRoute, useRouter } from "vue-router";
 import { googleOneTap } from "vue3-google-login"
@@ -8,7 +7,6 @@ import { googleOneTap } from "vue3-google-login"
 const route = useRoute()
 const router = useRouter()
 const googleStore = useGoogleStore()
-const userStore = useUserStore()
 
 const initializeGoogleOneTap = async () => {
   await googleStore.initialize()
@@ -17,7 +15,7 @@ const initializeGoogleOneTap = async () => {
     clientId: googleStore.response.clientId
   })
     .then(async (response) => {
-      await userStore.getUser(response.credential)
+      await googleStore.googleCredentialsLogin(response.credential)
       router.replace({ name: 'logged-in' })
     })
     .catch((error) => {

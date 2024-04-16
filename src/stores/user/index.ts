@@ -7,24 +7,6 @@ import { googleLogout } from 'vue3-google-login'
 export const useUserStore = defineStore('user', () => {
   const response = ref<User | null>(null)
 
-  const getUser = async (credentials: string) => {
-    try {
-      const { data } = await API.google.user.get({ data: { credentials } })
-      setUserData(data)
-    } catch (error) {
-      console.log(`Error ==> ${error}`)
-    }
-  }
-
-  const googleOauth2Login = async (code: string) => {
-    try {
-      const { data } = await API.google.user.oauth2({ data: { code } })
-      setUserData(data)
-    } catch (error) {
-      console.log(`Error ==> ${error}`)
-    }
-  }
-
   const authenticateUser = async () => {
     try {
       const { data } = await API.user.auth()
@@ -48,11 +30,9 @@ export const useUserStore = defineStore('user', () => {
   const currentUser = computed(() => response.value)
 
   return {
-    getUser,
     currentUser,
     setUserData,
     logoutUser,
-    authenticateUser,
-    googleOauth2Login
+    authenticateUser
   }
 })
