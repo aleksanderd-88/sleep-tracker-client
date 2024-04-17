@@ -64,15 +64,15 @@ router.beforeEach((to) => {
   const userData = JSON.parse(localStorage.getItem('__user__') as string)
   const routeRequiresAuth = to.meta.requiresAuth
 
-  if (userData && !routeRequiresAuth) {
+  if (!userData && routeRequiresAuth) {
+    return { name: 'start' }
+  } else if (userData && !routeRequiresAuth) {
     return { name: 'logged-in' }
   }
 
   if (userData) {
     useUserStore().setUserData(userData)
     useUserStore().authenticateUser()
-  } else if (routeRequiresAuth && !userData) {
-    return { name: 'start' }
   }
 })
 
